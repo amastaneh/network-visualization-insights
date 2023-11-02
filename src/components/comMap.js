@@ -1,16 +1,25 @@
 import React from 'react';
 import * as d3 from 'd3';
-import dataGeo from './../data/dataGeo.json';
 
-const ComMap = () => {
+const ComMap = ({ dataGeo }) => {
     const projection = d3
-        // .geoAlbersUsa()
-        // .scale(1300)
-        // .translate([487.5, 305])
-        .geoAlbers()
-        .precision(0)
-        .rotate([90, 0, 0])
-        .fitExtent([[0, 0], [96 * 10, 48 * 10],], dataGeo)
+        //.geoIdentity()
+        .geoAlbersUsa()
+        //.geoAlbers()
+        //.geoPath()
+        .translate([350, -1000])
+        .scale(6000)
+    // .geoTransform({
+    //     point: function (x, y) {
+    //         this.stream.point(x, -y);
+    //     }
+    // })
+    //.geoConicConformal()
+
+    //.geoAlbers()
+    //.precision(0)
+    //.rotate([90, 0, 0])
+    //.fitExtent([[0, 0], [96 * 10, 48 * 10],], dataGeo)
     const path = d3
         .geoPath()
         .projection(projection);
@@ -53,7 +62,10 @@ const ComMap = () => {
                     key={data.properties.FID}
                     className="path fill-slate-300 stroke-white stroke-1 hover:cursor-pointer hover:fill-orange-400 hover:opacity-50"
                     d={path(data)}
-                    onMouseOver={() => { handleMouseOver(data.properties["NAME_ENG"]); }}
+                    onMouseOver={() => {
+                        handleMouseOver(data?.properties["NAME_ENG"] ?? data?.properties["COUNTY"]
+                        );
+                    }}
                     onMouseOut={handleMouseOut}
                     onMouseMove={(e) => { handleMouseMove(e); }}
                 />

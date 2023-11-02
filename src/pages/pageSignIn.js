@@ -12,9 +12,16 @@ const PageSignIn = () => {
     }
 
     return <div className="flex min-h-full flex-col justify-center px-6 lg:px-8">
+
+        <div>
+            {["50", "100", "200", "300", "400", "500", "600", "700", "800", "900"].map(value =>
+                <span key={value} className={`bg-red-${value}`}>{value}</span>
+            )}
+        </div>
+
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
             <img className="mx-auto h-25 w-auto" src="/logo.png" alt="Universal Network Visualization Insights" />
-            <h2 className="text-center text-xl font-bold leading-9 tracking-tight text-gray-900">Universal Network Visualization Insights</h2>
+            <h2 className="text-center text-lg font-bold leading-9 tracking-tight">Universal Network Visualization Insights</h2>
         </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
