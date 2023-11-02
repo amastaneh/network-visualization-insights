@@ -1,0 +1,18 @@
+.heatmap {
+    .tooltip {
+        position: relative;
+    }
+
+    .tooltip:hover::after {
+        content: attr(data-content);
+        position: absolute;
+        left: 25px;
+        top: 25px;
+        padding: 2px;
+        width: 200px;
+        background-color: #333;
+        color: white;
+        border-radius: 3px;
+        z-index: 2;
+    }
+}
