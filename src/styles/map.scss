@@ -5,6 +5,7 @@
 
     .tooltip:hover::after {
         content: attr(data-content);
+        white-space: pre;
         position: absolute;
         left: 25px;
         top: 25px;

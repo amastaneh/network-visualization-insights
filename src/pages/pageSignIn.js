@@ -1,4 +1,5 @@
 import React from "react"
+import ComTailwindReset from './../components/comTailwindReset';
 
 const PageSignIn = () => {
     const [datasets, setDatasets] = React.useState({})
@@ -12,13 +13,6 @@ const PageSignIn = () => {
     }
 
     return <div className="flex min-h-full flex-col justify-center px-6 lg:px-8">
-
-        <div>
-            {["50", "100", "200", "300", "400", "500", "600", "700", "800", "900"].map(value =>
-                <span key={value} className={`bg-red-${value}`}>{value}</span>
-            )}
-        </div>
-
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
             <img className="mx-auto h-25 w-auto" src="/logo.png" alt="Universal Network Visualization Insights" />
             <h2 className="text-center text-lg font-bold leading-9 tracking-tight">Universal Network Visualization Insights</h2>
@@ -72,6 +66,7 @@ const PageSignIn = () => {
                 Not a member? <a href="/" className="font-semibold leading-6 text-slate-600 hover:text-slate-500">Start a 14 day free trial</a>
             </p>
         </div>
+        <ComTailwindReset />
     </div>
 }
 

@@ -6,12 +6,14 @@ import dataHeatmapUS from "../data/dataHeatmapUS";
 //import dataGeo from "../data/dataGeo";
 //import dataGeoTX from "../data/dataGeoTX";
 //import dataGeo from "../data/tx_counties.json";
+import ComTailwindReset from './../components/comTailwindReset';
 
 const PageDashboard = () => {
     const [dataset, setDataset] = React.useState({
         heatmap: "ds",
         heatmapData: dataHeatmapDS,
         heatmapColor: "emerald",
+        heatmapType: "Download Speed",
     });
 
     const handleChange = (e) => {
@@ -21,15 +23,15 @@ const PageDashboard = () => {
         // Heatmap
         if (name === "heatmap") {
             if (value === "ds") {
-                setDataset({ ...dataset, heatmap: value, heatmapData: dataHeatmapDS, heatmapColor: "emerald" });
+                setDataset({ ...dataset, heatmap: value, heatmapData: dataHeatmapDS, heatmapColor: "emerald", heatmapType: "Download Speed" });
             } else if (value === "us") {
-                setDataset({ ...dataset, heatmap: value, heatmapData: dataHeatmapUS, heatmapColor: "red" });
+                setDataset({ ...dataset, heatmap: value, heatmapData: dataHeatmapUS, heatmapColor: "red", heatmapType: "Upload Speed" });
             }
             else if (value === "rsrp") {
-                setDataset({ ...dataset, heatmap: value, heatmapData: dataHeatmapDS, heatmapColor: "cyan" });
+                setDataset({ ...dataset, heatmap: value, heatmapData: dataHeatmapDS, heatmapColor: "cyan", heatmapType: "RSRP" });
             }
             else if (value === "rsrq") {
-                setDataset({ ...dataset, heatmap: value, heatmapData: dataHeatmapDS, heatmapColor: "rose" });
+                setDataset({ ...dataset, heatmap: value, heatmapData: dataHeatmapDS, heatmapColor: "rose", heatmapType: "RSRQ" });
             }
             else {
                 alert("Error: Invalid heatmap value");
@@ -92,8 +94,9 @@ const PageDashboard = () => {
             </div>
         </div>
         <div className="flex justify-start gap-x-4">
-            <ComHeatmap data={dataset.heatmapData} color={dataset.heatmapColor} />
+            <ComHeatmap data={dataset.heatmapData} color={dataset.heatmapColor} type={dataset.heatmapType} />
         </div>
+        <ComTailwindReset />
     </main>
 }
 

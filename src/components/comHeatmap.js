@@ -1,7 +1,16 @@
 import React from 'react';
 
-const ComHeatmap = ({ data, color }) =>
-    <div className="heatmap relative flex flex-col full-width w-full">
+const ComHeatmap = ({ data, color, type }) => {
+    const min = Math.min(...Object.keys(data.rows).map(row => Math.min(...data.rows[row])));
+    const max = Math.max(...Object.keys(data.rows).map(row => Math.max(...data.rows[row])));
+    const getColor = (cell) => {
+        const value = ((cell - min) / (max - min)) * 100
+        console.log("ComHeatmap:getColor", cell, min, max, value)
+        return (value <= 10) ? 50 : Math.trunc((value - 1) / 10.0) * 100
+    }
+
+
+    return <div className="heatmap relative flex flex-col full-width w-full">
         {console.log("ComHeatmap:data", data)}
         <table>
             <thead>
@@ -20,8 +29,13 @@ const ComHeatmap = ({ data, color }) =>
                         {data.rows[row].map((cell, index) =>
                             <td
                                 key={index}
-                                data-content={`${row}, ${data.columns[index]}: ${cell}`}
-                                className={`tooltip border-white border-2 lg:border-4 bg-${color}-${(cell <= 10) ? 50 : Math.trunc((cell - 1) / 10.0) * 100}`}
+                                data-content={`
+Type: ${type}
+Region: ${row}
+Time: ${data.columns[index]}
+Value: ${cell}
+                                `.trim()}
+                                className={`tooltip border-white border-2 lg:border-4 bg-${color}-${getColor(cell)}`}
                             ></td>
                         )}
                     </tr>
@@ -29,6 +43,6 @@ const ComHeatmap = ({ data, color }) =>
             </tbody>
         </table>
     </div>
-
+}
 
 export default ComHeatmap;
