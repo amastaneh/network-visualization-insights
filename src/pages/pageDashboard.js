@@ -39,7 +39,7 @@ const PageDashboard = () => {
         }
     };
 
-    return <main className="min-h-screen max-w-fit mx-auto place-items-top py-8 flex flex-col gap-y-6">
+    return <main className="min-h-screen max-w-fit mx-auto place-items-top px-4 py-6 flex flex-col gap-y-6">
         <div>
             <h1 className="text-2xl font-bold text-slate-900">Regional Dashboard</h1>
         </div>
@@ -70,7 +70,7 @@ const PageDashboard = () => {
                 </select>
             </div>
         </div>
-        <div className="flex flex-col">
+        <div className="flex flex-col bg-slate-50">
             <div className="flex flex-row justify-between">
                 <ComMapUS highlightState={dataset.state.toUpperCase()} />
             </div>

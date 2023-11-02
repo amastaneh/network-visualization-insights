@@ -1,14 +1,27 @@
 import React from 'react';
 import { ComposableMap, Geographies, Geography, ZoomableGroup, Marker } from "react-simple-maps"
 import dataGeo from "./../data/topo-counties-10m.json";
-import dataMarkers from "../data/dataTexasGateways.json";
-import dataCounties from "../data/dataCounties";
+import dataUSRegions from "../data/dataUSRegions";
+import dataUSCounties from "../data/dataUSCounties";
+import dataGateways from "../data/dataGateways";
+import ComTailwindReset from './comTailwindReset';
 
 
 const ComMapUS = ({ highlightState }) => {
     const [position, setPosition] = React.useState({ coordinates: [0, 0], zoom: 1 });
-    const hightlightIds = dataCounties?.filter(county => county.state === highlightState).map(county => county.id) || [];
-    console.log("hightlightIds", hightlightIds)
+    const hightlightIds = dataUSCounties?.filter(county => county.state === highlightState).map(county => county.id) || [];
+    const markers = React.useMemo(() => {
+        return dataUSRegions?.map(region => {
+            const gateways = dataGateways.filter(gateway => gateway.Location === region.name);
+            const qty = gateways?.length || 0;
+            return {
+                ...region,
+                qty,
+                scale: qty / dataGateways.length,
+                rate: Math.floor(Math.random() * 9) + 1,
+            }
+        }) || [];
+    }, []);
 
     function handleZoomIn() {
         if (position.zoom >= 5) return;
@@ -26,13 +39,12 @@ const ComMapUS = ({ highlightState }) => {
 
     return <div className="relative flex w-full h-[400px]">
         <ComposableMap
-            //width={800}
-            //height={500}
+            height={400}
             //projection="geoAzimuthalEqualArea"
             projection="geoAlbersUsa"
             projectionConfig={{
-                rotate: [0, 0, 0],
-                center: [0, 0],
+                rotate: [100, 0, 0],
+                center: [100, 0],
                 scale: 950,
             }}
         >
@@ -44,47 +56,57 @@ const ComMapUS = ({ highlightState }) => {
                 <Geographies geography={dataGeo}>
                     {({ geographies }) =>
                         geographies.map((geo) => {
-                            return <Geography
-                                key={geo.rsmKey}
-                                geography={geo}
-                                fill={(hightlightIds.length && hightlightIds.includes(geo.id)) ? "#64748b" : "#e2e8f0"}
-                                hover={{ fill: "#f59e0b" }}
-                                //outline="none"
-                                //stroke="#fff"
-                                //strokeWidth={1}
-                                style={{
-                                    // default: {
-                                    //     fill: "#D6D6DA",
-                                    //     outline: "none"
-                                    // },
-                                    hover: {
-                                        fill: "#f59e0b",
-                                        outline: "none"
-                                    },
-                                    // pressed: {
-                                    //     fill: "#642",
-                                    //     outline: "none"
-                                    // }
-                                }}
-                                onMouseEnter={() => {
-                                    //setTooltipContent(`${geo.properties.name}`);
-                                    console.log("setTooltipContent", geo.id)
-                                }}
-                                onMouseLeave={() => {
-                                    //setTooltipContent("");
-                                    //console.log("setTooltipContent", "")
-                                }}
-                            />
+                            return (hightlightIds.length && hightlightIds.includes(geo.id)) &&
+                                <Geography
+                                    key={geo.rsmKey}
+                                    geography={geo}
+                                    fill={(hightlightIds.length && hightlightIds.includes(geo.id)) ? "#94a3b8" : "#e2e8f0"}
+                                    hover={{ fill: "#64748b" }}
+                                    outline="none"
+                                    stroke="#fff"
+                                    strokeWidth={0}
+                                    style={{
+                                        default: {
+                                            //fill: "#D6D6DA",
+                                            outline: "none"
+                                        },
+                                        hover: {
+                                            fill: "#64748b",
+                                            outline: "none"
+                                        },
+                                        pressed: {
+                                            fill: "#64748b",
+                                            outline: "none"
+                                        }
+                                    }}
+                                    onMouseEnter={() => {
+                                        //setTooltipContent(`${geo.properties.name}`);
+                                        //console.log("setTooltipContent", geo.id)
+                                    }}
+                                    onMouseLeave={() => {
+                                        //setTooltipContent("");
+                                        //console.log("setTooltipContent", "")
+                                    }}
+                                />
                         })
                     }
                 </Geographies>
-                {dataMarkers?.map(marker =>
-                    <Marker key={marker.id} coordinates={[marker.lng, marker.lat]}>
-                        <circle fill="#F53" stroke="#FFF" strokeWidth={1} r={marker.scale * 20} />
-                        {/* <text y="2" fontSize={14} textAnchor="middle">{marker.name}</text> */}
-                    </Marker>
-                )}
-
+                {markers
+                    ?.sort((a, b) => a.scale - b.scale)
+                    ?.map(marker =>
+                        <Marker key={marker.id} coordinates={[marker.lng, marker.lat]}>
+                            <ComTailwindReset />
+                            <circle
+                                className={`shadow-lg fill-current text-red-${marker.rate * 100}`}
+                                fill='#ff0000'
+                                stroke="#FFF"
+                                strokeWidth={0.2}
+                                r={marker.scale * 20}
+                                opacity={0.8}
+                            />
+                            <text y="0.9" fontSize={2} textAnchor="middle" fill="#FFF">{marker.name}</text>
+                        </Marker>
+                    )}
             </ZoomableGroup>
         </ComposableMap>
         <div className="absolute bottom-2 right-2">
