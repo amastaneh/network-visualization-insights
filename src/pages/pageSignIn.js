@@ -14,8 +14,8 @@ const PageSignIn = () => {
 
     return <div className="flex min-h-full flex-col justify-center px-6 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-            <img className="mx-auto h-25 w-auto" src="/logo.png" alt="Universal Network Visualization Insights" />
-            <h2 className="text-center text-lg font-bold leading-9 tracking-tight">Universal Network Visualization Insights</h2>
+            <img className="mx-auto h-25 w-auto" src="/logo.png" alt="Network Visualization Insights" />
+            <h2 className="text-center text-lg font-bold leading-9 tracking-tight">Network Visualization Insights</h2>
         </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
