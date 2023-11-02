@@ -5,13 +5,11 @@ const ComHeatmap = ({ data, color, type }) => {
     const max = Math.max(...Object.keys(data.rows).map(row => Math.max(...data.rows[row])));
     const getColor = (cell) => {
         const value = ((cell - min) / (max - min)) * 100
-        console.log("ComHeatmap:getColor", cell, min, max, value)
         return (value <= 10) ? 50 : Math.trunc((value - 1) / 10.0) * 100
     }
 
 
     return <div className="heatmap relative flex flex-col full-width w-full">
-        {console.log("ComHeatmap:data", data)}
         <table>
             <thead>
                 <tr>

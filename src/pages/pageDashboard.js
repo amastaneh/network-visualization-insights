@@ -1,12 +1,10 @@
 import React from "react"
-//import ComMap from "../components/comMap"
+import ComMapUS from "../components/comMapUS"
 import ComHeatmap from './../components/comHeatmap';
 import dataHeatmapDS from "../data/dataHeatmapDS";
 import dataHeatmapUS from "../data/dataHeatmapUS";
-//import dataGeo from "../data/dataGeo";
-//import dataGeoTX from "../data/dataGeoTX";
-//import dataGeo from "../data/tx_counties.json";
 import ComTailwindReset from './../components/comTailwindReset';
+
 
 const PageDashboard = () => {
     const [dataset, setDataset] = React.useState({
@@ -14,6 +12,8 @@ const PageDashboard = () => {
         heatmapData: dataHeatmapDS,
         heatmapColor: "emerald",
         heatmapType: "Download Speed",
+        dateRange: "thisQ",
+        state: "tx"
     });
 
     const handleChange = (e) => {
@@ -48,31 +48,31 @@ const PageDashboard = () => {
         <div className="flex justify-start gap-x-4">
             <div className="flex flex-row gap-x-2">
                 <label htmlFor="dateRange" className="block text-sm font-medium leading-6 text-gray-900 flex-shrink-0">Date Range: </label>
-                <select className="block w-full bg-white border border-slate-300 rounded py-0 px-2">
-                    <option value="thisWeek">This Week</option>
-                    <option value="lastWeek">Last Week</option>
-                    <option value="thisMonth">This Month</option>
-                    <option value="lastMonth">Last Month</option>
-                    <option value="thisYear">This Year</option>
-                    <option value="lastYear">Last Year</option>
-                    <option value="custom">Custom</option>
+                <select name="dateRange" className="block w-full bg-white border border-slate-300 rounded py-0 px-2" onChange={handleChange}>
+                    <option disabled value="thisM">This Month</option>
+                    <option disabled value="prvM">Previous Month</option>
+                    <option value="thisQ">This Quarter</option>
+                    <option disabled value="prvQ">Previous Quarter</option>
+                    <option disabled value="thisY">This Year</option>
+                    <option disabled value="prvY">Previous Year</option>
+                    <option disabled value="custom">Custom</option>
                 </select>
             </div>
             <div className="flex flex-row gap-x-2">
                 <label htmlFor="dateRange" className="block text-sm font-medium leading-6 text-gray-900 flex-shrink-0">State: </label>
-                <select className="block w-full bg-white border border-slate-300 rounded py-0 px-2" onChange={handleChange}>
-                    <option value="ca">California</option>
+                <select name="state" className="block w-full bg-white border border-slate-300 rounded py-0 px-2" onChange={handleChange}>
                     <option value="tx">Texas</option>
-                    <option value="ny">New York</option>
-                    <option value="fl">Florida</option>
-                    <option value="il">Illinois</option>
+                    <option disabled value="ca">California</option>
+                    <option disabled value="fl">Florida</option>
+                    <option disabled value="ny">New York</option>
+                    <option disabled value="il">Illinois</option>
+                    <option disabled value="pa">Pennsylvania</option>
                 </select>
             </div>
         </div>
         <div className="flex flex-col">
             <div className="flex flex-row justify-between">
-                {/* <ComMap dataGeo={dataGeoTX} /> */}
-                {/* <ComMap dataGeo={dataGeo} /> */}
+                <ComMapUS highlightState={dataset.state.toUpperCase()} />
             </div>
         </div>
 
