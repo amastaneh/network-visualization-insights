@@ -290,6 +290,296 @@ const dataGateways = [
         "RSRQ": -11
     },
     {
+        "Time": "10/25/2023 10:42",
+        "DUT": "BGW530-900",
+        "Location": "Prairies and Lakes",
+        "DS": 243.93,
+        "US": 174.75,
+        "Band": "n77",
+        "RSRP": -67,
+        "RSRQ": ""
+    },
+    {
+        "Time": "10/25/2023 10:44",
+        "DUT": "BGW530-900",
+        "Location": "Prairies and Lakes",
+        "DS": 281.83,
+        "US": 139.32,
+        "Band": "n77",
+        "RSRP": -69,
+        "RSRQ": ""
+    },
+    {
+        "Time": "10/25/2023 10:45",
+        "DUT": "BGW530-900",
+        "Location": "Prairies and Lakes",
+        "DS": 263.62,
+        "US": 142.97,
+        "Band": "n77",
+        "RSRP": -71,
+        "RSRQ": ""
+    },
+    {
+        "Time": "10/25/2023 10:47",
+        "DUT": "BGW530-900",
+        "Location": "Prairies and Lakes",
+        "DS": 284.6,
+        "US": 143.47,
+        "Band": "n77",
+        "RSRP": -70,
+        "RSRQ": ""
+    },
+    {
+        "Time": "10/25/2023 10:48",
+        "DUT": "BGW530-900",
+        "Location": "Prairies and Lakes",
+        "DS": 200.71,
+        "US": 150.68,
+        "Band": "n77",
+        "RSRP": -72,
+        "RSRQ": ""
+    },
+    {
+        "Time": "10/25/2023 10:49",
+        "DUT": "BGW530-900",
+        "Location": "Prairies and Lakes",
+        "DS": 235.55,
+        "US": 140.98,
+        "Band": "n77",
+        "RSRP": -71,
+        "RSRQ": ""
+    },
+    {
+        "Time": "10/25/2023 10:50",
+        "DUT": "BGW530-900",
+        "Location": "Prairies and Lakes",
+        "DS": 248.69,
+        "US": 150.12,
+        "Band": "n77",
+        "RSRP": -72,
+        "RSRQ": ""
+    },
+    {
+        "Time": "10/25/2023 10:54",
+        "DUT": "BGW530-900",
+        "Location": "Prairies and Lakes",
+        "DS": 279.04,
+        "US": 147.48,
+        "Band": "n77",
+        "RSRP": -72,
+        "RSRQ": ""
+    },
+    {
+        "Time": "10/25/2023 10:55",
+        "DUT": "BGW530-900",
+        "Location": "Prairies and Lakes",
+        "DS": 262.46,
+        "US": 152.88,
+        "Band": "n77",
+        "RSRP": -71,
+        "RSRQ": ""
+    },
+    {
+        "Time": "10/25/2023 10:56",
+        "DUT": "BGW530-900",
+        "Location": "Prairies and Lakes",
+        "DS": 252.72,
+        "US": 153.1,
+        "Band": "n77",
+        "RSRP": -72,
+        "RSRQ": ""
+    },
+    {
+        "Time": "10/25/2023 11:15",
+        "DUT": "Netgear M6 PRO",
+        "Location": "Prairies and Lakes",
+        "DS": 325.45,
+        "US": 115.35,
+        "Band": "B66",
+        "RSRP": -59,
+        "RSRQ": -11
+    },
+    {
+        "Time": "10/25/2023 11:16",
+        "DUT": "Netgear M6 PRO",
+        "Location": "Prairies and Lakes",
+        "DS": 223.16,
+        "US": 134.83,
+        "Band": "",
+        "RSRP": "",
+        "RSRQ": ""
+    },
+    {
+        "Time": "10/25/2023 11:17",
+        "DUT": "Netgear M6 PRO",
+        "Location": "Prairies and Lakes",
+        "DS": 254.87,
+        "US": 140.45,
+        "Band": "",
+        "RSRP": "",
+        "RSRQ": ""
+    },
+    {
+        "Time": "10/25/2023 11:18",
+        "DUT": "Netgear M6 PRO",
+        "Location": "Prairies and Lakes",
+        "DS": 230.25,
+        "US": 140.5,
+        "Band": "",
+        "RSRP": "",
+        "RSRQ": ""
+    },
+    {
+        "Time": "10/25/2023 11:19",
+        "DUT": "Netgear M6 PRO",
+        "Location": "Prairies and Lakes",
+        "DS": 236.79,
+        "US": 132.02,
+        "Band": "B66",
+        "RSRP": -61,
+        "RSRQ": -11
+    },
+    {
+        "Time": "10/25/2023 11:20",
+        "DUT": "Netgear M6 PRO",
+        "Location": "Prairies and Lakes",
+        "DS": 233.81,
+        "US": 120.9,
+        "Band": "",
+        "RSRP": "",
+        "RSRQ": ""
+    },
+    {
+        "Time": "10/25/2023 11:21",
+        "DUT": "Netgear M6 PRO",
+        "Location": "Prairies and Lakes",
+        "DS": 239.01,
+        "US": 136.24,
+        "Band": "",
+        "RSRP": "",
+        "RSRQ": ""
+    },
+    {
+        "Time": "10/25/2023 11:22",
+        "DUT": "Netgear M6 PRO",
+        "Location": "Prairies and Lakes",
+        "DS": 256.08,
+        "US": 117.48,
+        "Band": "",
+        "RSRP": "",
+        "RSRQ": ""
+    },
+    {
+        "Time": "10/25/2023 11:23",
+        "DUT": "Netgear M6 PRO",
+        "Location": "Prairies and Lakes",
+        "DS": 249.47,
+        "US": 131.97,
+        "Band": "",
+        "RSRP": "",
+        "RSRQ": ""
+    },
+    {
+        "Time": "10/25/2023 11:24",
+        "DUT": "Netgear M6 PRO",
+        "Location": "Prairies and Lakes",
+        "DS": 295.74,
+        "US": 124.06,
+        "Band": "",
+        "RSRP": "",
+        "RSRQ": ""
+    },
+    {
+        "Time": "10/25/2023 11:42",
+        "DUT": "CGW450-400",
+        "Location": "Prairies and Lakes",
+        "DS": 163.86,
+        "US": 122.26,
+        "Band": "",
+        "RSRP": "",
+        "RSRQ": ""
+    },
+    {
+        "Time": "10/25/2023 11:43",
+        "DUT": "CGW450-400",
+        "Location": "Prairies and Lakes",
+        "DS": 169.08,
+        "US": 83.59,
+        "Band": "n77",
+        "RSRP": -61,
+        "RSRQ": -11
+    },
+    {
+        "Time": "10/25/2023 11:45",
+        "DUT": "CGW450-400",
+        "Location": "Prairies and Lakes",
+        "DS": 139.62,
+        "US": 134.7,
+        "Band": "",
+        "RSRP": "",
+        "RSRQ": ""
+    },
+    {
+        "Time": "10/25/2023 11:46",
+        "DUT": "CGW450-400",
+        "Location": "Prairies and Lakes",
+        "DS": 187.54,
+        "US": 39.41,
+        "Band": "n77",
+        "RSRP": -61,
+        "RSRQ": -11
+    },
+    {
+        "Time": "10/25/2023 11:47",
+        "DUT": "CGW450-400",
+        "Location": "Prairies and Lakes",
+        "DS": 179.94,
+        "US": 132.06,
+        "Band": "",
+        "RSRP": "",
+        "RSRQ": ""
+    },
+    {
+        "Time": "10/25/2023 11:48",
+        "DUT": "CGW450-400",
+        "Location": "Prairies and Lakes",
+        "DS": 196.46,
+        "US": 128.29,
+        "Band": "",
+        "RSRP": "",
+        "RSRQ": ""
+    },
+    {
+        "Time": "10/25/2023 11:50",
+        "DUT": "CGW450-400",
+        "Location": "Prairies and Lakes",
+        "DS": 150.69,
+        "US": 130.25,
+        "Band": "",
+        "RSRP": "",
+        "RSRQ": ""
+    },
+    {
+        "Time": "10/25/2023 11:56",
+        "DUT": "CGW450-400",
+        "Location": "Prairies and Lakes",
+        "DS": 251.93,
+        "US": 40,
+        "Band": "n77",
+        "RSRP": -60,
+        "RSRQ": -11
+    },
+    {
+        "Time": "10/25/2023 11:59",
+        "DUT": "CGW450-400",
+        "Location": "Prairies and Lakes",
+        "DS": 191.53,
+        "US": 128.5,
+        "Band": "n77",
+        "RSRP": -65,
+        "RSRQ": -11
+    },
+    {
         "Time": "10/25/2023 12:01",
         "DUT": "CGW450-400",
         "Location": "Prairies and Lakes",

@@ -4,6 +4,7 @@ import ComHeatmap from './../components/comHeatmap';
 import dataHeatmapDS from "../data/dataHeatmapDS";
 import dataHeatmapUS from "../data/dataHeatmapUS";
 import ComTailwindReset from './../components/comTailwindReset';
+import ComAreaChart from "../components/comAreaChart";
 
 
 const PageDashboard = () => {
@@ -96,6 +97,10 @@ const PageDashboard = () => {
         <div className="flex justify-start gap-x-4">
             <ComHeatmap data={dataset.heatmapData} color={dataset.heatmapColor} type={dataset.heatmapType} />
         </div>
+        <div className="flex justify-start gap-x-4">
+            <ComAreaChart data={dataset.heatmapData} color={dataset.heatmapColor} type={dataset.heatmapType} />
+        </div>
+
         <ComTailwindReset />
     </main>
 }

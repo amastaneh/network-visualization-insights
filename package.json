@@ -1,10 +1,12 @@
 {
   "name": "network-visualization-insights",
-  "version": "1.0.33",
+  "version": "1.0.35",
   "private": true,
   "dependencies": {
+    "chart.js": "^4.4.0",
     "d3": "^7.8.5",
     "react": "^18.2.0",
+    "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.18.0",
     "react-scripts": "5.0.1",
