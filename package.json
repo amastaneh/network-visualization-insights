@@ -1,6 +1,6 @@
 {
   "name": "network-visualization-insights",
-  "version": "1.0.36",
+  "version": "1.0.37",
   "private": true,
   "dependencies": {
     "chart.js": "^4.4.0",

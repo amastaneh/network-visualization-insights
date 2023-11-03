@@ -4,7 +4,6 @@ import dataGeo from "./../data/topo-counties-10m.json";
 import dataUSRegions from "../data/dataUSRegions";
 import dataUSCounties from "../data/dataUSCounties";
 import dataGateways from "../data/dataGateways";
-import ComTailwindReset from './comTailwindReset';
 
 
 const ComMapUS = ({ highlightState }) => {
@@ -18,10 +17,11 @@ const ComMapUS = ({ highlightState }) => {
                 ...region,
                 qty,
                 scale: qty / dataGateways.length,
-                rate: Math.floor(Math.random() * 9) + 1,
+                rateColor: ["emerald-600", "red-600", "amber-500"][Math.floor(Math.random() * 3)]
             }
         }) || [];
     }, []);
+    console.log("markers", markers);
 
     function handleZoomIn() {
         if (position.zoom >= 5) return;
@@ -55,49 +55,48 @@ const ComMapUS = ({ highlightState }) => {
             >
                 <Geographies geography={dataGeo}>
                     {({ geographies }) =>
-                        geographies.map((geo) => {
-                            return (hightlightIds.length && hightlightIds.includes(geo.id)) &&
-                                <Geography
-                                    key={geo.rsmKey}
-                                    geography={geo}
-                                    fill={(hightlightIds.length && hightlightIds.includes(geo.id)) ? "#94a3b8" : "#e2e8f0"}
-                                    hover={{ fill: "#64748b" }}
-                                    outline="none"
-                                    stroke="#fff"
-                                    strokeWidth={0}
-                                    style={{
-                                        default: {
-                                            //fill: "#D6D6DA",
-                                            outline: "none"
-                                        },
-                                        hover: {
-                                            fill: "#64748b",
-                                            outline: "none"
-                                        },
-                                        pressed: {
-                                            fill: "#64748b",
-                                            outline: "none"
-                                        }
-                                    }}
-                                    onMouseEnter={() => {
-                                        //setTooltipContent(`${geo.properties.name}`);
-                                        //console.log("setTooltipContent", geo.id)
-                                    }}
-                                    onMouseLeave={() => {
-                                        //setTooltipContent("");
-                                        //console.log("setTooltipContent", "")
-                                    }}
-                                />
-                        })
+                        geographies.map((geo) =>
+                            (hightlightIds.length && hightlightIds.includes(geo.id)) &&
+                            <Geography
+                                key={geo.rsmKey}
+                                geography={geo}
+                                fill={(hightlightIds.length && hightlightIds.includes(geo.id)) ? "#94a3b8" : "#e2e8f0"}
+                                hover={{ fill: "#64748b" }}
+                                outline="none"
+                                stroke="#fff"
+                                strokeWidth={0}
+                                style={{
+                                    default: {
+                                        //fill: "#D6D6DA",
+                                        outline: "none"
+                                    },
+                                    hover: {
+                                        fill: "#64748b",
+                                        outline: "none"
+                                    },
+                                    pressed: {
+                                        fill: "#64748b",
+                                        outline: "none"
+                                    }
+                                }}
+                                onMouseEnter={() => {
+                                    //setTooltipContent(`${geo.properties.name}`);
+                                    //console.log("setTooltipContent", geo.id)
+                                }}
+                                onMouseLeave={() => {
+                                    //setTooltipContent("");
+                                    //console.log("setTooltipContent", "")
+                                }}
+                            />
+                        )
                     }
                 </Geographies>
                 {markers
                     ?.sort((a, b) => a.scale - b.scale)
                     ?.map(marker =>
                         <Marker key={marker.id} coordinates={[marker.lng, marker.lat]}>
-                            <ComTailwindReset />
                             <circle
-                                className={`shadow-lg fill-current text-red-${marker.rate * 100}`}
+                                className={`shadow-lg fill-current text-${marker.rateColor}`}
                                 fill='#ff0000'
                                 stroke="#FFF"
                                 strokeWidth={0.2}
