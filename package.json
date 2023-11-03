@@ -1,5 +1,6 @@
 {
   "name": "network-visualization-insights",
+  "title": "Network Visualization Insights",
   "version": "1.0.37",
   "private": true,
   "dependencies": {

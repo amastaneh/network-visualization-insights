@@ -5,6 +5,7 @@ import dataHeatmapDS from "../data/dataHeatmapDS";
 import dataHeatmapUS from "../data/dataHeatmapUS";
 import ComTailwindReset from './../components/comTailwindReset';
 import ComAreaChart from "../components/comAreaChart";
+import packageJson from "./../../package.json";
 
 
 const PageDashboard = () => {
@@ -101,6 +102,11 @@ const PageDashboard = () => {
             <ComAreaChart data={dataset.heatmapData} color={dataset.heatmapColor} type={dataset.heatmapType} />
         </div>
 
+        <div className="flex flex-row justify-center gap-x-4">
+            <small className="text-xs text-gray-400">
+                All Rights Reserved &copy; 2023 {packageJson.title} - v{packageJson.version}
+            </small>
+        </div>
         <ComTailwindReset />
     </main>
 }
