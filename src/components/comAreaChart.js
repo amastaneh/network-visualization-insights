@@ -12,18 +12,25 @@ const ComAreaChart = ({ data, color, type }) =>
             plugins: {
                 legend: {
                     position: 'bottom',
+                    onClick: function (_e, legendItem) {
+                        const { chart } = this;
+                        chart.data.datasets.forEach((dataset) => { dataset.hidden = true; });
+                        chart.data.datasets[legendItem.datasetIndex].hidden = false;
+                        chart.update();
+                    }
                 },
             },
         }}
         data={{
             labels: data.columns,
-            datasets: Object.keys(data.rows).map(row => {
+            datasets: Object.keys(data.rows).map((row, index) => {
                 return {
                     fill: false,
                     label: row,
                     data: data.rows[row],
                     borderColor: colorHelper.getColorCode(color, 500),
                     backgroundColor: colorHelper.getColorCode("slate", 100, 0.5),
+                    hidden: index > 0,
                 }
             })
         }}
