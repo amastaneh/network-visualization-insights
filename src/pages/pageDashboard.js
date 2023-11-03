@@ -103,10 +103,11 @@ const PageDashboard = () => {
         </div>
 
         <div className="flex flex-row justify-center gap-x-4">
-            <small className="text-xs text-gray-400">
-                All Rights Reserved &copy; 2023 {packageJson.title} - v{packageJson.version}
-            </small>
+            <div className="text-xs text-gray-400">
+                <small>All Rights Reserved &copy; 2023 {packageJson.title} - v{packageJson.version}</small>
+            </div>
         </div>
+
         <ComTailwindReset />
     </main>
 }
