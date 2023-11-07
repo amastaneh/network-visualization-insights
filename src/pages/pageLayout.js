@@ -25,9 +25,17 @@ const PageLayout = () => {
                         Network Visualization Insights
                     </a>
                 </div>
-                {/* Menu items */}
-                <div className="hidden md:flex items-center">
+                {/* Desktop Menu items */}
+                <div className="hidden md:flex items-center relative">
                     <a href="/" className="px-4 hover:text-blue-400">Home</a>
+                    {/* Dashboard Dropdown */}
+                    <div className="group relative">
+                        <button href="#" className="px-4 hover:text-blue-400 cursor-pointer">Dashboard</button>
+                        <div className="absolute left-0 hidden group-hover:block bg-blue-900 z-10">
+                            <a href="/regional" className="block px-4 py-2 hover:bg-blue-700">Regional Dashboard</a>
+                            <a href="/gateway" className="block px-4 py-2 hover:bg-blue-700">Gateway Dashboard</a>
+                        </div>
+                    </div>
                     <a href="/signin" className="px-4 hover:text-blue-400">Sign In</a>
                 </div>
                 {/* Mobile Menu Button */}
@@ -36,12 +44,22 @@ const PageLayout = () => {
                 </button>
             </nav>
             {/* Mobile Menu */}
-            <div style={{ display: isMobileMenuOpen ? 'block' : 'none' }} className="md:hidden">
+            <div className={`${isMobileMenuOpen ? 'block' : 'hidden'} md:hidden`}>
                 <a href="/" className="block px-4 py-2 hover:bg-blue-600">Home</a>
+                {/* Dashboard Mobile Toggle */}
+                <div>
+                    <button href="#" className="block px-4 py-2 hover:bg-blue-600" onClick={(e) => e.preventDefault()}>Dashboard</button>
+                    <div className="pl-4">
+                        <a href="/regional" className="block px-4 py-2 hover:bg-blue-600">Regional Dashboard</a>
+                        <a href="/gateway" className="block px-4 py-2 hover:bg-blue-600">Gateway Dashboard</a>
+                    </div>
+                </div>
                 <a href="/signin" className="block px-4 py-2 hover:bg-blue-600">Sign In</a>
             </div>
         </header>
+
         <Outlet />
+
         {/* Footer section */}
         <footer className="bg-blue-700 text-xs text-gray-400 flex flex-row justify-center gap-x-4 py-6">
             <small>All Rights Reserved &copy; 2023 {packageJson.title} - v{packageJson.version}</small>

@@ -19,7 +19,7 @@ const PageHome = () => {
                 <div className="w-full mb-8">
                     <h1 className="text-3xl md:text-5xl font-bold mb-4">Welcome to Network Visualization Insights</h1>
                     <p className="text-base md:text-xl mb-8">Capture, visualize, and control your network's gateways with ease. Embrace a platform that adapts to your evolving telecom, network, and 5G needs, simplifying complexity with intuitive visualization insights.</p>
-                    <a href="/gateways" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Dashboard</a>
+                    <a href="/gateway" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Dashboard</a>
                 </div>
                 <div className="w-full">
                     <Lottie options={defaultOptions} height={400} width={400} />
@@ -40,7 +40,7 @@ const PageHome = () => {
                     <div className="w-full md:w-1/2 px-4 mb-8">
                         <h3 className="text-xl md:text-2xl font-bold mb-4">Gateway Dashboard</h3>
                         <p className="text-base md:text-lg mb-4">Streamline your gateways' oversight with city-specific maps. Monitor health, traffic, and 5G efficiency to maintain seamless connectivity and robust network infrastructure.</p>
-                        <a href="/gateways" className="text-blue-500 hover:text-blue-700 font-bold">Learn More</a>
+                        <a href="/gateway" className="text-blue-500 hover:text-blue-700 font-bold">Learn More</a>
                     </div>
                 </div>
             </div>

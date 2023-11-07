@@ -20,7 +20,7 @@ ReactDOM
 					children: [
 						{ index: true, element: <PageHome /> },
 						{ path: "regional", element: <PageRegional /> },
-						{ path: "gateways", element: <PageGateways /> },
+						{ path: "gateway", element: <PageGateways /> },
 						{ path: "signin", element: <PageSignIn /> },
 						{ path: "login", element: <Navigate to="/signin" /> },
 						{ path: "*", element: <Page404 /> },
