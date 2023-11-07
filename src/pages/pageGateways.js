@@ -1,14 +1,15 @@
 import React from "react"
-import ComMapUS from "../components/comMapUS"
 import ComHeatmap from './../components/comHeatmap';
 import dataHeatmapDS from "../data/dataHeatmapDS";
 import dataHeatmapUS from "../data/dataHeatmapUS";
 import ComTailwindReset from './../components/comTailwindReset';
 import ComAreaChart from "../components/comAreaChart";
 import packageJson from "./../../package.json";
+import { MapContainer, Popup, TileLayer, Marker } from "react-leaflet";
 
 
-const PageDashboard = () => {
+
+const PageGateways = () => {
     const [dataset, setDataset] = React.useState({
         heatmap: "ds",
         heatmapData: dataHeatmapDS,
@@ -43,7 +44,7 @@ const PageDashboard = () => {
 
     return <main className="min-h-screen max-w-fit mx-auto place-items-top px-4 py-6 flex flex-col gap-y-6">
         <div>
-            <h1 className="text-2xl font-bold text-slate-900">Regional Dashboard</h1>
+            <h1 className="text-2xl font-bold text-slate-900">Gateways Dashboard</h1>
         </div>
 
         {/* Map */}
@@ -74,7 +75,17 @@ const PageDashboard = () => {
         </div>
         <div className="flex flex-col bg-slate-50">
             <div className="flex flex-row justify-between">
-                <ComMapUS highlightState={dataset.state.toUpperCase()} />
+                <MapContainer center={[52.505, -0.09]} zoom={13} scrollWheelZoom={false}>
+                    <TileLayer
+                        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                    />
+                    <Marker position={[51.505, -0.09]}>
+                        <Popup>
+                            A pretty CSS3 popup. <br /> Easily customizable.
+                        </Popup>
+                    </Marker>
+                </MapContainer>
             </div>
         </div>
 
@@ -112,4 +123,4 @@ const PageDashboard = () => {
     </main>
 }
 
-export default PageDashboard
+export default PageGateways 

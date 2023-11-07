@@ -12,12 +12,12 @@ const ComAreaChart = ({ data, color, type }) =>
             plugins: {
                 legend: {
                     position: 'bottom',
-                    onClick: function (_e, legendItem) {
-                        const { chart } = this;
-                        chart.data.datasets.forEach((dataset) => { dataset.hidden = true; });
-                        chart.data.datasets[legendItem.datasetIndex].hidden = false;
-                        chart.update();
-                    }
+                    // onClick: function (_e, legendItem) {
+                    //     const { chart } = this;
+                    //     chart.data.datasets.forEach((dataset) => { dataset.hidden = true; });
+                    //     chart.data.datasets[legendItem.datasetIndex].hidden = false;
+                    //     chart.update();
+                    // }
                 },
             },
         }}
@@ -30,7 +30,7 @@ const ComAreaChart = ({ data, color, type }) =>
                     data: data.rows[row],
                     borderColor: colorHelper.getColorCode(color, 500),
                     backgroundColor: colorHelper.getColorCode("slate", 100, 0.5),
-                    hidden: index > 0,
+                    //hidden: index > 0,
                 }
             })
         }}
