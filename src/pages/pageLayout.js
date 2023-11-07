@@ -61,7 +61,7 @@ const PageLayout = () => {
         <Outlet />
 
         {/* Footer section */}
-        <footer className="bg-blue-700 text-xs text-gray-400 flex flex-row justify-center gap-x-4 py-6">
+        <footer className="bg-blue-900 text-xs text-gray-400 flex flex-row justify-center gap-x-4 py-6">
             <small>All Rights Reserved &copy; 2023 {packageJson.title} - v{packageJson.version}</small>
         </footer>
     </div>
