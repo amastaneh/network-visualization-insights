@@ -7,18 +7,25 @@ import Page404 from './pages/page404';
 import PageRegional from './pages/pageRegional';
 import PageGateways from './pages/pageGateways';
 import PageHome from './pages/pageHome';
+import PageLayout from './pages/pageLayout';
 
 ReactDOM
 	.createRoot(document.getElementById('root'))
 	.render(
 		<React.StrictMode>
 			<RouterProvider router={createBrowserRouter([
-				{ path: "/regional", element: <PageRegional />, },
-				{ path: "/gateways", element: <PageGateways />, },
-				{ path: "/signin", element: <PageSignIn />, },
-				{ path: "/login", element: <Navigate to="/signin" /> },
-				{ path: "/", element: <PageHome />, },
-				{ path: "/404", element: <Page404 />, },
+				{
+					path: "/",
+					element: <PageLayout />,
+					children: [
+						{ index: true, element: <PageHome /> },
+						{ path: "regional", element: <PageRegional /> },
+						{ path: "gateways", element: <PageGateways /> },
+						{ path: "signin", element: <PageSignIn /> },
+						{ path: "login", element: <Navigate to="/signin" /> },
+						{ path: "*", element: <Page404 /> },
+					],
+				},
 			])} />
 		</React.StrictMode>
 	);
