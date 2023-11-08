@@ -125,7 +125,10 @@ const PageGateway = () => {
                                 <Marker key={`marker-${idx}`} position={[gateway.lat, gateway.long]}>
                                     <Popup>
                                         <div>Position: {gateway.lat}, {gateway.long}</div>
-                                        <div>Gateway Name: {`Gateway ${idx}`}</div>
+                                        <div>Gateway Name: {gateway.name}</div>
+                                        <div>City: {gateway.city}</div>
+                                        <div>Download Speed: {gateway.dl}</div>
+                                        <div>Upload Speed: {gateway.ul}</div>
                                     </Popup>
                                 </Marker>
                             ))}
