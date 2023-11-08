@@ -13,7 +13,6 @@ const PageLayout = () => {
 
     const toggleMobileMenu = () =>
         setMobileMenuOpen(!isMobileMenuOpen);
-
     return <div className="flex flex-col min-h-screen bg-white text-slate-800 dark:bg-slate-800 dark:text-white">
         {/* Header menu */}
         <header className="px-4 bg-blue-900 text-white dark:bg-slate-900 dark:text-gray-400">
@@ -62,7 +61,7 @@ const PageLayout = () => {
 
         {/* Footer section */}
         <footer className="bg-blue-900 text-xs text-gray-400 dark:bg-slate-900 dark:text-gray-400 flex flex-row justify-center gap-x-4 py-6">
-            <small>All Rights Reserved &copy; 2023 {packageJson.title} - v{packageJson.version}</small>
+            <small>Copyright &copy; 2023 {packageJson.title} - v{packageJson.version} All rights reserved.</small>
         </footer>
     </div>
 }

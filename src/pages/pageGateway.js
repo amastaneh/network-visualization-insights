@@ -78,14 +78,14 @@ const PageGateway = () => {
 
     return <main className="min-h-screen max-w-fit mx-auto place-items-top px-4 py-6 flex flex-col gap-y-6">
         <div>
-            <h1 className="text-2xl font-bold text-slate-900">Gateways Dashboard</h1>
+            <h1 className="text-2xl font-bold text-slate-900 dark:text-gray-400">Gateways Dashboard</h1>
         </div>
 
         {/* Map */}
         <div className="flex justify-start gap-x-4">
             <div className="flex flex-row gap-x-2">
-                <label htmlFor="dateRange" className="block text-sm font-medium leading-6 text-gray-900 flex-shrink-0">Date Range: </label>
-                <select name="dateRange" className="block w-full bg-white border border-slate-300 rounded py-0 px-2" onChange={handleChange}>
+                <label htmlFor="dateRange" className="block text-sm font-medium leading-6 text-gray-900 dark:text-gray-400 flex-shrink-0">Date Range: </label>
+                <select name="dateRange" className="block w-full bg-white border border-slate-300 dark:border-gray-700 dark:bg-slate-900 dark:text-gray-400 rounded py-0 px-2" onChange={handleChange}>
                     <option disabled value="thisM">This Month</option>
                     <option disabled value="prvM">Previous Month</option>
                     <option value="thisQ">This Quarter</option>
@@ -96,8 +96,8 @@ const PageGateway = () => {
                 </select>
             </div>
             <div className="flex flex-row gap-x-2">
-                <label htmlFor="state" className="block text-sm font-medium leading-6 text-gray-900 flex-shrink-0">State: </label>
-                <select name="state" className="block w-full bg-white border border-slate-300 rounded py-0 px-2" onChange={handleChange}>
+                <label htmlFor="state" className="block text-sm font-medium leading-6 text-gray-900 dark:text-gray-400 flex-shrink-0">State: </label>
+                <select name="state" className="block w-full bg-white border border-slate-300 dark:border-gray-700 dark:bg-slate-900 dark:text-gray-400 rounded py-0 px-2" onChange={handleChange}>
                     <option value="tx">Texas</option>
                     <option value="ca">California</option>
                     <option value="fl">Florida</option>
@@ -132,8 +132,8 @@ const PageGateway = () => {
                                     </Popup>
                                 </Marker>
                             ))}
-                    </MarkerClusterGroup>;
-                </MapContainer>;
+                    </MarkerClusterGroup>
+                </MapContainer>
 
             </div>
         </div>
@@ -141,10 +141,10 @@ const PageGateway = () => {
         {/* Heatmap */}
         <div className="flex justify-start gap-x-4">
             <div className="flex flex-row gap-x-2">
-                <label htmlFor="dateRange" className="block text-sm font-medium leading-6 text-gray-900 flex-shrink-0">Heatmap Category: </label>
+                <label htmlFor="dateRange" className="block text-sm font-medium leading-6 text-gray-900 dark:text-gray-400 flex-shrink-0">Heatmap Category: </label>
                 <select
                     name="heatmap"
-                    className="block w-full bg-white border border-slate-300 rounded py-0 px-2"
+                    className="block w-full bg-white border border-slate-300 dark:border-gray-700 dark:bg-slate-900 dark:text-gray-400 rounded py-0 px-2"
                     onChange={handleChange}
                     defaultValue={dataset.heatmap}
                 >
