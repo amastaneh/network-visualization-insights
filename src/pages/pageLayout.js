@@ -16,7 +16,7 @@ const PageLayout = () => {
 
     return <div className="flex flex-col min-h-screen bg-white text-slate-800 dark:bg-slate-800 dark:text-white">
         {/* Header menu */}
-        <header className="bg-blue-900 text-white px-4">
+        <header className="px-4 bg-blue-900 text-white dark:bg-slate-900 dark:text-gray-400">
             <nav className="container mx-auto flex items-center justify-between py-2">
                 {/* Logo */}
                 <div className="flex items-center">
@@ -27,19 +27,19 @@ const PageLayout = () => {
                 </div>
                 {/* Desktop Menu items */}
                 <div className="hidden md:flex items-center relative">
-                    <a href="/" className="px-4 hover:text-blue-400">Home</a>
+                    <a href="/" className="px-4 hover:text-blue-400 dark:hover:text-blue-400">Home</a>
                     {/* Dashboard Dropdown */}
                     <div className="group relative">
-                        <button href="#" className="px-4 hover:text-blue-400 cursor-pointer">Dashboard</button>
-                        <div className="absolute left-0 hidden group-hover:block bg-blue-900 z-10">
-                            <a href="/regional" className="block px-4 py-2 hover:bg-blue-700">Regional Dashboard</a>
-                            <a href="/gateway" className="block px-4 py-2 hover:bg-blue-700">Gateway Dashboard</a>
+                        <button href="#" className="px-4 hover:text-blue-400 dark:hover:text-blue-400 focus:outline-none cursor-pointer">Dashboard</button>
+                        <div className="absolute left-0 hidden group-hover:block bg-blue-900 dark:bg-slate-900 text-white dark:text-gray-400 z-10">
+                            <a href="/regional" className="block px-4 py-2 hover:bg-blue-700 dark:hover:bg-slate-700">Regional Dashboard</a>
+                            <a href="/gateway" className="block px-4 py-2 hover:bg-blue-700 dark:hover:bg-slate-700">Gateway Dashboard</a>
                         </div>
                     </div>
-                    <a href="/signin" className="px-4 hover:text-blue-400">Sign In</a>
+                    <a href="/signin" className="px-4 hover:text-blue-400 dark:hover:text-blue-400">Sign In</a>
                 </div>
                 {/* Mobile Menu Button */}
-                <button onClick={toggleMobileMenu} className="px-4 hover:text-blue-400 focus:outline-none md:hidden">
+                <button onClick={toggleMobileMenu} className="px-4 hover:text-blue-400 dark:hover:text-blue-400 focus:outline-none md:hidden">
                     <HamburgerIcon isOpen={isMobileMenuOpen} />
                 </button>
             </nav>
@@ -61,7 +61,7 @@ const PageLayout = () => {
         <Outlet />
 
         {/* Footer section */}
-        <footer className="bg-blue-900 text-xs text-gray-400 flex flex-row justify-center gap-x-4 py-6">
+        <footer className="bg-blue-900 text-xs text-gray-400 dark:bg-slate-900 dark:text-gray-400 flex flex-row justify-center gap-x-4 py-6">
             <small>All Rights Reserved &copy; 2023 {packageJson.title} - v{packageJson.version}</small>
         </footer>
     </div>
