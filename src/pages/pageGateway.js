@@ -19,8 +19,8 @@ const PageGateway = () => {
         heatmapType: "Download Speed",
         dateRange: "thisQ",
         state: "tx",
-        stateLat: 31.9686,
-        stateLong: -99.9018,
+        stateLat: 32.7767,
+        stateLong: -96.7970,
     });
 
     const handleChange = (e) => {
@@ -50,7 +50,7 @@ const PageGateway = () => {
             let newLocation = {};
             switch (value) {
                 case "tx":
-                    newLocation = { lat: 31.9686, lng: -99.9018 };
+                    newLocation = { lat: 32.7767, lng: -96.7970 };
                     break;
                 case "ca":
                     newLocation = { lat: 36.7783, lng: -119.4179 };
