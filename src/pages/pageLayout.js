@@ -14,7 +14,7 @@ const PageLayout = () => {
     const toggleMobileMenu = () =>
         setMobileMenuOpen(!isMobileMenuOpen);
 
-    return <div className="flex flex-col min-h-screen">
+    return <div className="flex flex-col min-h-screen bg-white text-slate-800 dark:bg-slate-800 dark:text-white">
         {/* Header menu */}
         <header className="bg-blue-900 text-white px-4">
             <nav className="container mx-auto flex items-center justify-between py-2">
