@@ -12,7 +12,7 @@ const dataGateways = [
         city: "Arlington, TX",
         lat: 32.7357,
         long: -97.1081,
-        dl: 235.234,
+        dl: 25.234,
         ul: 40.999,
     },
     {
@@ -20,7 +20,7 @@ const dataGateways = [
         city: "Plano, TX",
         lat: 33.0198,
         long: -96.6989,
-        dl: 176.58,
+        dl: 476.58,
         ul: 4.863,
     },
     {
