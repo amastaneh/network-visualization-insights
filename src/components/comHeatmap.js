@@ -9,38 +9,40 @@ const ComHeatmap = ({ data, color, type }) => {
     }
 
 
-    return <div className="heatmap relative flex flex-col full-width w-full">
-        <table>
-            <thead>
-                <tr>
-                    <th></th>
-                    {data.columns.map(col => <th className={"font-light text-xs"} key={col}>{col}</th>)}
-                </tr>
-            </thead>
+    return <table className="max-w-fit">
+        <thead>
+            <tr>
+                <th></th>
+                {data.columns.map(col =>
+                    <th className={"font-light text-xs"} key={col}>
+                        {col}
+                    </th>
+                )}
+            </tr>
+        </thead>
 
-            <tbody>
-                {Object.keys(data.rows).map(row =>
-                    <tr key={row}>
-                        <td>
-                            <span className='whitespace-nowrap text-sm'>{row}</span>
-                        </td>
-                        {data.rows[row].map((cell, index) =>
-                            <td
-                                key={index}
-                                data-content={`
+        <tbody>
+            {Object.keys(data.rows).map(row =>
+                <tr key={row}>
+                    <td>
+                        <span className='whitespace-nowrap text-sm'>{row}</span>
+                    </td>
+                    {data.rows[row].map((cell, index) =>
+                        <td
+                            key={index}
+                            data-content={`
 Type: ${type}
 Region: ${row}
 Time: ${data.columns[index]}
 Value: ${cell}
                                 `.trim()}
-                                className={`tooltip border-white border-2 lg:border-4 bg-${color}-${getColor(cell)}`}
-                            ></td>
-                        )}
-                    </tr>
-                )}
-            </tbody>
-        </table>
-    </div>
+                            className={`tooltip border-white border-2 lg:border-4 bg-${color}-${getColor(cell)}`}
+                        ></td>
+                    )}
+                </tr>
+            )}
+        </tbody>
+    </table>
 }
 
 export default ComHeatmap;

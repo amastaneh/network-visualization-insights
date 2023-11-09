@@ -1,8 +1,9 @@
 import React from "react"
-import ComTailwindReset from './../components/comTailwindReset';
+import { browserHelper } from "../helper/browserHelper";
 
 const PageSignIn = () => {
     const [datasets, setDatasets] = React.useState({})
+    const isDarkMode = browserHelper.isDarkMode()
 
     const handleChange = (event) =>
         setDatasets({ ...datasets, [event.target.name]: event.target.value })
@@ -14,7 +15,7 @@ const PageSignIn = () => {
 
     return <div className="flex min-h-screen flex-col justify-center px-6 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-            <img className="mx-auto h-48 w-auto" src="/logo.png" alt="Network Visualization Insights" />
+            <img className="mx-auto h-48 w-auto" src={isDarkMode ? "/logo-light.png" : "/logo-dark.png"} alt="Network Visualization Insights" />
             <h2 className="text-center text-lg font-bold leading-9 tracking-tight">Network Visualization Insights</h2>
         </div>
 
@@ -66,7 +67,6 @@ const PageSignIn = () => {
                 Not a member? <a href="/" className="font-semibold leading-6 text-slate-600 hover:text-slate-500">Start a 14 day free trial</a>
             </p>
         </div>
-        <ComTailwindReset />
     </div>
 }
 

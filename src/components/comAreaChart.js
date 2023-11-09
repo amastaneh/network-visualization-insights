@@ -7,6 +7,7 @@ ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, T
 
 const ComAreaChart = ({ data, color, type }) =>
     <Line
+        height="250px"
         options={{
             responsive: true,
             plugins: {

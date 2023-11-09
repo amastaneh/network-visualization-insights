@@ -14,7 +14,7 @@ const PageHome = () => {
 
     return <>
         {/* Hero section */}
-        <section className="px-4 py-10 md:py-20 bg-white text-slate-800">
+        <section className="px-4 py-10 md:py-20 bg-gray-100 text-gray-800 dark:bg-gray-400 dark:text-gray-900">
             <div className="container mx-auto flex flex-col md:flex-row items-center justify-between">
                 <div className="w-full mb-8">
                     <h1 className="text-3xl md:text-5xl font-bold mb-4">Welcome to Network Visualization Insights</h1>
@@ -28,7 +28,7 @@ const PageHome = () => {
         </section>
 
         {/* Highlight sections */}
-        <section className="px-4 py-10 md:py-20 bg-blue-100 text-slate-800 dark:bg-slate-900 dark:text-gray-400">
+        <section className="px-4 py-10 md:py-20 bg-blue-100 text-gray-800 dark:bg-gray-900 dark:text-gray-100">
             <div className="container mx-auto">
                 <h2 className="text-2xl md:text-3xl font-bold mb-8">Our Services</h2>
                 <div className="flex flex-col md:flex-row md:-mx-4">

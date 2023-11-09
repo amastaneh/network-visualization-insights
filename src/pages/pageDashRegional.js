@@ -3,12 +3,10 @@ import ComMapUS from "../components/comMapUS"
 import ComHeatmap from '../components/comHeatmap';
 import dataHeatmapDS from "../data/dataHeatmapDS";
 import dataHeatmapUS from "../data/dataHeatmapUS";
-import ComTailwindReset from '../components/comTailwindReset';
 import ComAreaChart from "../components/comAreaChart";
-import packageJson from "../../package.json";
 
 
-const PageRegional = () => {
+const PageDashRegional = () => {
     const [dataset, setDataset] = React.useState({
         heatmap: "ds",
         heatmapData: dataHeatmapDS,
@@ -101,15 +99,7 @@ const PageRegional = () => {
         <div className="flex justify-start gap-x-4">
             <ComAreaChart data={dataset.heatmapData} color={dataset.heatmapColor} type={dataset.heatmapType} />
         </div>
-
-        <div className="flex flex-row justify-center gap-x-4">
-            <div className="text-xs text-gray-400">
-                <small>All Rights Reserved &copy; 2023 {packageJson.title} - v{packageJson.version}</small>
-            </div>
-        </div>
-
-        <ComTailwindReset />
     </main>
 }
 
-export default PageRegional
+export default PageDashRegional

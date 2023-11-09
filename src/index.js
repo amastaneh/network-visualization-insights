@@ -4,8 +4,8 @@ import { createBrowserRouter, RouterProvider, Navigate } from "react-router-dom"
 import './index.scss';
 import PageSignIn from './pages/pageSignIn';
 import Page404 from './pages/page404';
-import PageRegional from './pages/pageRegional';
-import PageGateway from './pages/pageGateway';
+import PageDashRegional from './pages/pageDashRegional';
+import PageDashGateway from './pages/pageDashGateway';
 import PageHome from './pages/pageHome';
 import PageLayout from './pages/pageLayout';
 
@@ -19,8 +19,8 @@ ReactDOM
 					element: <PageLayout />,
 					children: [
 						{ index: true, element: <PageHome /> },
-						{ path: "regional", element: <PageRegional /> },
-						{ path: "gateway", element: <PageGateway /> },
+						{ path: "regional", element: <PageDashRegional /> },
+						{ path: "gateway", element: <PageDashGateway /> },
 						{ path: "signin", element: <PageSignIn /> },
 						{ path: "login", element: <Navigate to="/signin" /> },
 						{ path: "*", element: <Page404 /> },
