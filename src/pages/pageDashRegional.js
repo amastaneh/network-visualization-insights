@@ -12,7 +12,7 @@ const PageDashRegional = () => {
         heatmapData: dataHeatmapDS,
         heatmapColor: "emerald",
         heatmapType: "Download Speed",
-        dateRange: "thisQ",
+        dateRange: "prvY",
         state: "tx"
     });
 
@@ -51,10 +51,10 @@ const PageDashRegional = () => {
                 <select name="dateRange" className="block w-full bg-white border border-slate-300 dark:border-gray-700 dark:bg-slate-900 dark:text-gray-400 rounded py-0 px-2" onChange={handleChange}>
                     <option disabled value="thisM">This Month</option>
                     <option disabled value="prvM">Previous Month</option>
-                    <option value="thisQ">This Quarter</option>
+                    <option disabled value="thisQ">This Quarter</option>
                     <option disabled value="prvQ">Previous Quarter</option>
                     <option disabled value="thisY">This Year</option>
-                    <option disabled value="prvY">Previous Year</option>
+                    <option value="prvY">Previous Year</option>
                     <option disabled value="custom">Custom</option>
                 </select>
             </div>
