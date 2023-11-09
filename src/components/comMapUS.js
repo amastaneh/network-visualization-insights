@@ -3,7 +3,7 @@ import { ComposableMap, Geographies, Geography, ZoomableGroup, Marker } from "re
 import dataGeo from "./../data/topo-counties-10m.json";
 import dataUSRegions from "../data/dataUSRegions";
 import dataUSCounties from "../data/dataUSCounties";
-import dataGateways from "../data/dataGateways";
+import dataDUT from "../data/dataDUT";
 
 
 const ComMapUS = ({ highlightState }) => {
@@ -11,12 +11,12 @@ const ComMapUS = ({ highlightState }) => {
     const hightlightIds = dataUSCounties?.filter(county => county.state === highlightState).map(county => county.id) || [];
     const markers = React.useMemo(() => {
         return dataUSRegions?.map(region => {
-            const gateways = dataGateways.filter(gateway => gateway.Location === region.name);
-            const qty = gateways?.length || 0;
+            const duts = dataDUT.filter(dut => dut.Location === region.name);
+            const qty = duts?.length || 0;
             return {
                 ...region,
                 qty,
-                scale: qty / dataGateways.length,
+                scale: qty / dataDUT.length,
                 rateColor: ["emerald-600", "red-600", "amber-500"][Math.floor(Math.random() * 3)]
             }
         }) || [];

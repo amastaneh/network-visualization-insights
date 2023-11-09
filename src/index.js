@@ -5,7 +5,7 @@ import './index.scss';
 import PageSignIn from './pages/pageSignIn';
 import Page404 from './pages/page404';
 import PageDashRegional from './pages/pageDashRegional';
-import PageDashGateway from './pages/pageDashGateway';
+import PageDashDUT from './pages/pageDashDUT';
 import PageHome from './pages/pageHome';
 import PageLayout from './pages/pageLayout';
 
@@ -20,7 +20,7 @@ ReactDOM
 					children: [
 						{ index: true, element: <PageHome /> },
 						{ path: "regional", element: <PageDashRegional /> },
-						{ path: "gateway", element: <PageDashGateway /> },
+						{ path: "dut", element: <PageDashDUT /> },
 						{ path: "signin", element: <PageSignIn /> },
 						{ path: "login", element: <Navigate to="/signin" /> },
 						{ path: "*", element: <Page404 /> },

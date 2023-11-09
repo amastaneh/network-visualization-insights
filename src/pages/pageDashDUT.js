@@ -3,14 +3,14 @@ import dataHeatmapDS from "../data/dataHeatmapDS";
 import dataHeatmapUS from "../data/dataHeatmapUS";
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import MarkerClusterGroup from '@changey/react-leaflet-markercluster';
-import dataGatewayInfo from "../data/dataGatewayInfo";
+import dataDUTInfo from "../data/dataDUTInfo";
 import ReactApexChart from "react-apexcharts";
 import { generalHelper } from "../helper/generalHelper";
 import L from 'leaflet';
 import { colorHelper } from "../helper/colorHelper";
 
 
-const PageDashGateway = () => {
+const PageDashDUT = () => {
     const mapRef = React.useRef();
     const [dataset, setDataset] = React.useState({
         heatmap: "ds",
@@ -126,7 +126,7 @@ const PageDashGateway = () => {
     return <main className="min-h-screen items-center my-6">
         <div className="flex flex-col max-w-6xl mx-auto my-0 gap-y-4">
             <div>
-                <h1 className="text-2xl font-bold text-slate-900 dark:text-gray-400">Gateway Dashboard</h1>
+                <h1 className="text-2xl font-bold text-slate-900 dark:text-gray-400">DUT Dashboard</h1>
             </div>
 
             {/* Filters */}
@@ -171,14 +171,14 @@ const PageDashGateway = () => {
 
                         <MarkerClusterGroup animate={true} animateAddingMarkers={true}>
                             {
-                                dataGatewayInfo.map((gateway, idx) => (
+                                dataDUTInfo.map((dut, idx) => (
                                     <Marker
                                         key={`marker- ${idx}`}
-                                        position={[gateway.lat, gateway.long]}
+                                        position={[dut.lat, dut.long]}
                                         icon={
                                             L.divIcon({
                                                 className: 'custom-div-icon',
-                                                html: svgMarker(gateway.dl, gateway.ul),
+                                                html: svgMarker(dut.dl, dut.ul),
                                             })
                                         }
                                         clickable={true}
@@ -190,11 +190,11 @@ const PageDashGateway = () => {
                                         }}
                                     >
                                         <Popup>
-                                            <div>Position: {gateway.lat}, {gateway.long}</div>
-                                            <div>Gateway Name: {gateway.name}</div>
-                                            <div><span class="text-gray-500"><i class="fa-solid fa-location-dot"></i></span> City: {gateway.city}</div>
-                                            <div><span style={{ color: `${gateway.dl < 30 ? '#e74c3c' : gateway.dl < 300 ? '#3498db' : '#27ae60'}` }}><i className="fas fa-download"></i></span> DL: {gateway.dl}</div>
-                                            <div><span style={{ color: `${gateway.ul < 30 ? '#e74c3c' : gateway.ul < 300 ? '#3498db' : '#27ae60'}` }}><i className="fas fa-upload"></i></span> UL: {gateway.ul}</div>
+                                            <div>Position: {dut.lat}, {dut.long}</div>
+                                            <div>DUT Name: {dut.name}</div>
+                                            <div><span class="text-gray-500"><i class="fa-solid fa-location-dot"></i></span> City: {dut.city}</div>
+                                            <div><span style={{ color: `${dut.dl < 30 ? '#e74c3c' : dut.dl < 300 ? '#3498db' : '#27ae60'}` }}><i className="fas fa-download"></i></span> DL: {dut.dl}</div>
+                                            <div><span style={{ color: `${dut.ul < 30 ? '#e74c3c' : dut.ul < 300 ? '#3498db' : '#27ae60'}` }}><i className="fas fa-upload"></i></span> UL: {dut.ul}</div>
                                         </Popup>
                                     </Marker>
                                 ))}
@@ -288,4 +288,4 @@ const PageDashGateway = () => {
     </main>
 }
 
-export default PageDashGateway
+export default PageDashDUT

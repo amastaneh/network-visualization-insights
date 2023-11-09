@@ -1,4 +1,4 @@
-const dataGateways = [
+const dataDUT = [
     {
         name: 'BGW530-900',
         city: "Dallas, TX",
@@ -33,4 +33,4 @@ const dataGateways = [
     },
 ]
 
-export default dataGateways
+export default dataDUT

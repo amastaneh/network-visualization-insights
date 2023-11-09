@@ -80,7 +80,7 @@ const PageLayout = () => {
                     <div className="group relative">
                         <button href="#" className="px-4 hover:text-blue-400 dark:hover:text-blue-400 focus:outline-none cursor-pointer">Dashboard</button>
                         <div className="absolute left-0 hidden group-hover:block bg-blue-900 dark:bg-slate-900 text-white dark:text-gray-400 z-10">
-                            <a href="/gateway" className="block px-4 py-2 hover:bg-blue-700 dark:hover:bg-slate-700">Gateway Dashboard</a>
+                            <a href="/dut" className="block px-4 py-2 hover:bg-blue-700 dark:hover:bg-slate-700">DUT Dashboard</a>
                             <a href="/regional" className="block px-4 py-2 hover:bg-blue-700 dark:hover:bg-slate-700">Regional Dashboard</a>
                         </div>
                     </div>
@@ -100,8 +100,8 @@ const PageLayout = () => {
                 <div>
                     <button href="#" className="block px-4 py-2 hover:bg-blue-600" onClick={(e) => e.preventDefault()}>Dashboard</button>
                     <div className="pl-4">
+                        <a href="/dut" className="block px-4 py-2 hover:bg-blue-600">DUT Dashboard</a>
                         <a href="/regional" className="block px-4 py-2 hover:bg-blue-600">Regional Dashboard</a>
-                        <a href="/gateway" className="block px-4 py-2 hover:bg-blue-600">Gateway Dashboard</a>
                     </div>
                 </div>
                 <a href="/signin" className="block px-4 py-2 hover:bg-blue-600">Sign In</a>

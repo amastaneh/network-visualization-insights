@@ -10,7 +10,7 @@ const PageSignIn = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        window.location.href = "/gateway"
+        window.location.href = "/dut"
     }
 
     return <div className="flex min-h-screen flex-col justify-center px-6 lg:px-8">

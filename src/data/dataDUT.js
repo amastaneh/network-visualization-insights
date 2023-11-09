@@ -1,4 +1,4 @@
-const dataGateways = [
+const dataDUT = [
     {
         "Time": "10/25/2023 10:42",
         "DUT": "BGW530-900",
@@ -1191,4 +1191,4 @@ const dataGateways = [
     }
 ]
 
-export default dataGateways
+export default dataDUT
