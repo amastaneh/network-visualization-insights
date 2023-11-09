@@ -2,6 +2,8 @@
 Network Visualization Insights presents network data seamlessly, offering clear visuals through charts, graphs, and tables. Dive deep into key metrics across diverse locations.
 
 [![Farsi Presentation](https://github.com/amastaneh/network-visualization-insights/assets/6195199/491febbc-0295-4dd1-bb78-0efae3550856)](https://www.loom.com/share/7610069df4c8487190b1549bc6cc1584)
+[![Farsi Presentation](https://github-production-user-asset-6210df.s3.amazonaws.com/6195199/281858203-491febbc-0295-4dd1-bb78-0efae3550856.png)](https://www.loom.com/share/7610069df4c8487190b1549bc6cc1584)
+
 
 ![image](https://github.com/amastaneh/network-visualization-insights/assets/6195199/2aebbeb5-36a7-42a5-92d5-faf3127bb5ec)
 
