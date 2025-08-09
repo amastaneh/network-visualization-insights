@@ -1,5 +1,5 @@
 import React from "react"
-import { browserHelper } from "../helper/browserHelper";
+import { browserHelper } from "../helper/browserHelper.js";
 
 const PageSignIn = () => {
     const [datasets, setDatasets] = React.useState({})

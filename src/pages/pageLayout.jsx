@@ -1,7 +1,7 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import packageJson from "../../package.json";
-import { browserHelper } from './../helper/browserHelper';
+import { browserHelper } from './../helper/browserHelper.js';
 
 const svgMoon = <svg version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 499.712 499.712" className="w-4 h-4">
     <path className="fill-yellow-300" d="M146.88,375.528c126.272,0,228.624-102.368,228.624-228.64c0-55.952-20.16-107.136-53.52-146.88 C425.056,33.096,499.696,129.64,499.696,243.704c0,141.392-114.608,256-256,256c-114.064,0-210.608-74.64-243.696-177.712 C39.744,355.368,90.944,375.528,146.88,375.528z" />

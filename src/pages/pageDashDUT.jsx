@@ -1,11 +1,11 @@
 import React from "react"
-import dataHeatmapDS from "../data/dataHeatmapDS";
-import dataHeatmapUS from "../data/dataHeatmapUS";
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import MarkerClusterGroup from '@changey/react-leaflet-markercluster';
-import dataDUTInfo from "../data/dataDUTInfo";
+import dataHeatmapDS from "../data/dataHeatmapDS.json";
+import dataHeatmapUS from "../data/dataHeatmapUS.json";
+import dataDUTInfo from "../data/dataDUTInfo.js";
 import ReactApexChart from "react-apexcharts";
-import { generalHelper } from "../helper/generalHelper";
+import { generalHelper } from "../helper/generalHelper.js";
 import L from 'leaflet';
 //import { colorHelper } from "../helper/colorHelper";
 

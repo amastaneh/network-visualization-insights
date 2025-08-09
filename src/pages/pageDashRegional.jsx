@@ -1,9 +1,9 @@
 import React from "react"
-import ComMapUS from "../components/comMapUS"
-import ComHeatmap from '../components/comHeatmap';
-import dataHeatmapDS from "../data/dataHeatmapDS";
-import dataHeatmapUS from "../data/dataHeatmapUS";
-import ComAreaChart from "../components/comAreaChart";
+import ComMapUS from "../components/comMapUS.jsx";
+import ComHeatmap from '../components/comHeatmap.jsx';
+import dataHeatmapDS from "./../data/dataHeatmapDS.json";
+import dataHeatmapUS from "../data/dataHeatmapUS.json";
+import ComAreaChart from "../components/comAreaChart.jsx";
 
 
 const PageDashRegional = () => {

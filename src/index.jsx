@@ -1,13 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider, Navigate } from "react-router-dom";
-import './index.scss';
-import PageSignIn from './pages/pageSignIn';
-import Page404 from './pages/page404';
-import PageDashRegional from './pages/pageDashRegional';
-import PageDashDUT from './pages/pageDashDUT';
-import PageHome from './pages/pageHome';
-import PageLayout from './pages/pageLayout';
+import "./styles/global.css";
+import "./styles/index.scss";
+import PageSignIn from './pages/pageSignIn.jsx';
+import Page404 from './pages/page404.jsx';
+import PageDashRegional from './pages/pageDashRegional.jsx';
+import PageDashDUT from './pages/pageDashDUT.jsx';
+import PageHome from './pages/pageHome.jsx';
+import PageLayout from './pages/pageLayout.jsx';
 
 ReactDOM
 	.createRoot(document.getElementById('root'))
