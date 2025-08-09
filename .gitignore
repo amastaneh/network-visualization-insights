@@ -13,15 +13,6 @@
 /dist
 /tmp
 
-# lock
-*.lock
-package-lock.json
-yarn.lock
-/package-lock.json
-/yarn.lock
-yarn*.log
-yarn-error.log
-
 # misc
 .DS_Store
 .env.local
