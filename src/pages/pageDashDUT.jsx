@@ -1,10 +1,8 @@
 import React from "react";
 import L from "leaflet";
-import "leaflet/dist/leaflet.css";
-//import "react-leaflet-cluster/dist/styles.min.css";
-
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import MarkerClusterGroup from "react-leaflet-cluster";
+import MarkerClusterGroup from "react-leaflet-markercluster";
+
 
 import dataHeatmapDS from "../data/dataHeatmapDS.json";
 import dataHeatmapUS from "../data/dataHeatmapUS.json";
