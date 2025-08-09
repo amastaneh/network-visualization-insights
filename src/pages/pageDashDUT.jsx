@@ -1,13 +1,17 @@
-import React from "react"
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import MarkerClusterGroup from '@changey/react-leaflet-markercluster';
+import React from "react";
+import L from "leaflet";
+import "leaflet/dist/leaflet.css";
+//import "react-leaflet-cluster/dist/styles.min.css";
+
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import MarkerClusterGroup from "react-leaflet-cluster";
+
 import dataHeatmapDS from "../data/dataHeatmapDS.json";
 import dataHeatmapUS from "../data/dataHeatmapUS.json";
 import dataDUTInfo from "../data/dataDUTInfo.js";
 import ReactApexChart from "react-apexcharts";
 import { generalHelper } from "../helper/generalHelper.js";
-import L from 'leaflet';
-//import { colorHelper } from "../helper/colorHelper";
+
 
 
 const PageDashDUT = () => {
@@ -158,7 +162,7 @@ const PageDashDUT = () => {
             <div className="flex flex-col bg-slate-50">
                 <div className="flex flex-row justify-between">
                     <MapContainer
-                        ref={mapRef}
+                        whenCreated={(map) => (mapRef.current = map)}
                         className="w-full h-96"
                         center={[dataset.stateLat, dataset.stateLong]}
                         zoom={6}
@@ -169,35 +173,31 @@ const PageDashDUT = () => {
                             attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                         />
 
-                        <MarkerClusterGroup animate={true} animateAddingMarkers={true}>
-                            {
-                                dataDUTInfo.map((dut, idx) => (
-                                    <Marker
-                                        key={`marker- ${idx}`}
-                                        position={[dut.lat, dut.long]}
-                                        icon={
-                                            L.divIcon({
-                                                className: 'custom-div-icon',
-                                                html: svgMarker(dut.dl, dut.ul),
-                                            })
-                                        }
-                                        clickable={true}
-                                        eventHandlers={{
-                                            click: () => {
-                                                setArrDL(generalHelper.getRandomNumbers(30 * 13, 10, 500, 35));
-                                                setArrUL(generalHelper.getRandomNumbers(30 * 13, 10, 500, 35));
-                                            },
-                                        }}
-                                    >
-                                        <Popup>
-                                            <div>Position: {dut.lat}, {dut.long}</div>
-                                            <div>DUT Name: {dut.name}</div>
-                                            <div><span class="text-gray-500"><i class="fa-solid fa-location-dot"></i></span> City: {dut.city}</div>
-                                            <div><span style={{ color: `${dut.dl < 30 ? '#e74c3c' : dut.dl < 300 ? '#3498db' : '#27ae60'}` }}><i className="fas fa-download"></i></span> DL: {dut.dl}</div>
-                                            <div><span style={{ color: `${dut.ul < 30 ? '#e74c3c' : dut.ul < 300 ? '#3498db' : '#27ae60'}` }}><i className="fas fa-upload"></i></span> UL: {dut.ul}</div>
-                                        </Popup>
-                                    </Marker>
-                                ))}
+                        <MarkerClusterGroup chunkedLoading>
+                            {dataDUTInfo.map((dut, idx) => (
+                                <Marker
+                                    key={`marker-${idx}`}
+                                    position={[dut.lat, dut.long]}
+                                    icon={L.divIcon({
+                                        className: "custom-div-icon",
+                                        html: svgMarker(dut.dl, dut.ul),
+                                    })}
+                                    eventHandlers={{
+                                        click: () => {
+                                            setArrDL(generalHelper.getRandomNumbers(30 * 13, 10, 500, 35));
+                                            setArrUL(generalHelper.getRandomNumbers(30 * 13, 10, 500, 35));
+                                        },
+                                    }}
+                                >
+                                    <Popup>
+                                        <div>Position: {dut.lat}, {dut.long}</div>
+                                        <div>DUT Name: {dut.name}</div>
+                                        <div><span className="text-gray-500"><i className="fa-solid fa-location-dot" /></span> City: {dut.city}</div>
+                                        <div><span style={{ color: dut.dl < 30 ? "#e74c3c" : dut.dl < 300 ? "#3498db" : "#27ae60" }}><i className="fas fa-download" /></span> DL: {dut.dl}</div>
+                                        <div><span style={{ color: dut.ul < 30 ? "#e74c3c" : dut.ul < 300 ? "#3498db" : "#27ae60" }}><i className="fas fa-upload" /></span> UL: {dut.ul}</div>
+                                    </Popup>
+                                </Marker>
+                            ))}
                         </MarkerClusterGroup>
                     </MapContainer>
                 </div>
