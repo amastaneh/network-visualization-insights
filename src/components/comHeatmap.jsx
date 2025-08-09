@@ -1,48 +1,48 @@
 import React from 'react';
+import { colorHelper } from '../helper/colorHelper';
 
 const ComHeatmap = ({ data, color, type }) => {
-    const min = Math.min(...Object.keys(data.rows).map(row => Math.min(...data.rows[row])));
-    const max = Math.max(...Object.keys(data.rows).map(row => Math.max(...data.rows[row])));
-    const getColor = (cell) => {
-        const value = ((cell - min) / (max - min)) * 100
-        return (value <= 10) ? 50 : Math.trunc((value - 1) / 10.0) * 100
-    }
+    const min = Math.min(...Object.values(data.rows).flatMap(row => row));
+    const max = Math.max(...Object.values(data.rows).flatMap(row => row));
+    const getColorShade = (cell) => {
+        const value = ((cell - min) / (max - min)) * 100;
+        return (value <= 10) ? 100 : Math.min(900, Math.trunc(value / 10) * 100);
+    };
 
-
-    return <table className="max-w-fit">
-        <thead>
-            <tr>
-                <th></th>
-                {data.columns.map(col =>
-                    <th className={"font-light text-xs"} key={col}>
-                        {col}
-                    </th>
-                )}
-            </tr>
-        </thead>
-
-        <tbody>
-            {Object.keys(data.rows).map(row =>
-                <tr key={row}>
-                    <td>
-                        <span className='whitespace-nowrap text-sm'>{row}</span>
-                    </td>
-                    {data.rows[row].map((cell, index) =>
-                        <td
-                            key={index}
-                            data-content={`
-Type: ${type}
-Region: ${row}
-Time: ${data.columns[index]}
-Value: ${cell}
-                                `.trim()}
-                            className={`tooltip border-white border-2 lg:border-4 bg-${color}-${getColor(cell)}`}
-                        ></td>
-                    )}
-                </tr>
-            )}
-        </tbody>
-    </table>
-}
+    return (
+        <div className="overflow-x-auto">
+            <table className="w-full border-collapse">
+                <thead>
+                    <tr>
+                        <th className="p-2 text-left text-sm font-medium text-neutral-500"></th>
+                        {data.columns.map(col => (
+                            <th className="p-2 text-center text-xs font-normal text-neutral-500" key={col}>
+                                {col}
+                            </th>
+                        ))}
+                    </tr>
+                </thead>
+                <tbody>
+                    {Object.keys(data.rows).map(row => (
+                        <tr key={row}>
+                            <td className="p-2 text-sm text-neutral-700 whitespace-nowrap">{row}</td>
+                            {data.rows[row].map((cell, index) => (
+                                <td
+                                    key={index}
+                                    className="relative group border-2 border-white"
+                                    style={{ backgroundColor: colorHelper.getColorCode(color, getColorShade(cell)) }}
+                                >
+                                    <div className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 w-max p-2 text-xs text-white bg-neutral-800 rounded-md opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+                                        {`${type}: ${cell}`}
+                                    </div>
+                                </td>
+                            ))}
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        </div>
+    );
+};
 
 export default ComHeatmap;

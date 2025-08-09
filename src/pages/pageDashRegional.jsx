@@ -1,105 +1,90 @@
-import React from "react"
+import React from "react";
 import ComMapUS from "../components/comMapUS.jsx";
 import ComHeatmap from '../components/comHeatmap.jsx';
 import dataHeatmapDS from "./../data/dataHeatmapDS.json";
 import dataHeatmapUS from "../data/dataHeatmapUS.json";
 import ComAreaChart from "../components/comAreaChart.jsx";
 
-
 const PageDashRegional = () => {
     const [dataset, setDataset] = React.useState({
         heatmap: "ds",
         heatmapData: dataHeatmapDS,
-        heatmapColor: "emerald",
+        heatmapColor: "blue",
         heatmapType: "Download Speed",
         dateRange: "prvY",
         state: "tx"
     });
 
     const handleChange = (e) => {
-        e.preventDefault();
         const { name, value } = e.target;
-
-        // Heatmap
         if (name === "heatmap") {
-            if (value === "ds") {
-                setDataset({ ...dataset, heatmap: value, heatmapData: dataHeatmapDS, heatmapColor: "emerald", heatmapType: "Download Speed" });
-            } else if (value === "us") {
-                setDataset({ ...dataset, heatmap: value, heatmapData: dataHeatmapUS, heatmapColor: "red", heatmapType: "Upload Speed" });
-            }
-            else if (value === "rsrp") {
-                setDataset({ ...dataset, heatmap: value, heatmapData: dataHeatmapDS, heatmapColor: "cyan", heatmapType: "RSRP" });
-            }
-            else if (value === "rsrq") {
-                setDataset({ ...dataset, heatmap: value, heatmapData: dataHeatmapDS, heatmapColor: "rose", heatmapType: "RSRQ" });
-            }
-            else {
-                alert("Error: Invalid heatmap value");
-            }
+            const heatmapSettings = {
+                ds: { data: dataHeatmapDS, color: "blue", type: "Download Speed" },
+                us: { data: dataHeatmapUS, color: "red", type: "Upload Speed" },
+                rsrp: { data: dataHeatmapDS, color: "teal", type: "RSRP" },
+                rsrq: { data: dataHeatmapDS, color: "rose", type: "RSRQ" },
+            };
+            setDataset({ ...dataset, heatmap: value, ...heatmapSettings[value] });
+        } else {
+            setDataset({ ...dataset, [name]: value });
         }
     };
 
-    return <main className="min-h-screen max-w-fit mx-auto place-items-top px-4 py-6 flex flex-col gap-y-6">
-        <div>
-            <h1 className="text-2xl font-bold text-slate-900 dark:text-gray-400">Regional Dashboard</h1>
-        </div>
+    return (
+        <main className="min-h-screen max-w-7xl mx-auto px-4 py-6 flex flex-col gap-y-6">
+            <h1 className="text-3xl font-bold text-neutral-900">Regional Dashboard</h1>
 
-        {/* Map */}
-        <div className="flex justify-start gap-x-4">
-            <div className="flex flex-row gap-x-2">
-                <label htmlFor="dateRange" className="block text-sm font-medium leading-6 text-gray-900 dark:text-gray-400 flex-shrink-0">Date Range: </label>
-                <select name="dateRange" className="block w-full bg-white border border-slate-300 dark:border-gray-700 dark:bg-slate-900 dark:text-gray-400 rounded py-0 px-2" onChange={handleChange}>
-                    <option disabled value="thisM">This Month</option>
-                    <option disabled value="prvM">Previous Month</option>
-                    <option disabled value="thisQ">This Quarter</option>
-                    <option disabled value="prvQ">Previous Quarter</option>
-                    <option disabled value="thisY">This Year</option>
-                    <option value="prvY">Previous Year</option>
-                    <option disabled value="custom">Custom</option>
-                </select>
-            </div>
-            <div className="flex flex-row gap-x-2">
-                <label htmlFor="dateRange" className="block text-sm font-medium leading-6 text-gray-900 dark:text-gray-400 flex-shrink-0">State: </label>
-                <select name="state" className="block w-full bg-white border border-slate-300 dark:border-gray-700 dark:bg-slate-900 dark:text-gray-400 rounded py-0 px-2" onChange={handleChange}>
-                    <option value="tx">Texas</option>
-                    <option disabled value="ca">California</option>
-                    <option disabled value="fl">Florida</option>
-                    <option disabled value="ny">New York</option>
-                    <option disabled value="il">Illinois</option>
-                    <option disabled value="pa">Pennsylvania</option>
-                </select>
-            </div>
-        </div>
-        <div className="flex flex-col bg-slate-50">
-            <div className="flex flex-row justify-between">
-                <ComMapUS highlightState={dataset.state.toUpperCase()} />
-            </div>
-        </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {/* Map and Filters */}
+                <div className="bg-white p-6 rounded-lg shadow-sm">
+                    <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-4 gap-4">
+                        <div className="flex items-center gap-x-3">
+                            <label htmlFor="dateRange" className="text-sm font-medium text-neutral-700">Date Range:</label>
+                            <select name="dateRange" className="w-full bg-neutral-50 border border-neutral-300 rounded-md py-2 px-3 focus:ring-2 focus:ring-neutral-800" onChange={handleChange}>
+                                <option value="prvY">Previous Year</option>
+                            </select>
+                        </div>
+                        <div className="flex items-center gap-x-3">
+                            <label htmlFor="state" className="text-sm font-medium text-neutral-700">State:</label>
+                            <select name="state" className="w-full bg-neutral-50 border border-neutral-300 rounded-md py-2 px-3 focus:ring-2 focus:ring-neutral-800" onChange={handleChange} defaultValue="tx">
+                                <option value="tx">Texas</option>
+                            </select>
+                        </div>
+                    </div>
+                    <ComMapUS highlightState={dataset.state.toUpperCase()} />
+                    <p className="mt-4 text-sm text-neutral-600 text-center">
+                        Click on city regions on the map for more insights.
+                    </p>
+                </div>
 
-        {/* Heatmap */}
-        <div className="flex justify-start gap-x-4">
-            <div className="flex flex-row gap-x-2">
-                <label htmlFor="dateRange" className="block text-sm font-medium leading-6 text-gray-900 dark:text-gray-400 flex-shrink-0">Heatmap Category: </label>
-                <select
-                    name="heatmap"
-                    className="block w-full bg-white border border-slate-300 dark:border-gray-700 dark:bg-slate-900 dark:text-gray-400 rounded py-0 px-2"
-                    onChange={handleChange}
-                    defaultValue={dataset.heatmap}
-                >
-                    <option value="ds">Download Speed</option>
-                    <option value="us">Upload Speed</option>
-                    <option value="rsrp">RSRP</option>
-                    <option value="rsrq">RSRQ</option>
-                </select>
+                {/* Area Chart */}
+                <div className="bg-white p-6 rounded-lg shadow-sm">
+                    <ComAreaChart data={dataset.heatmapData} color={dataset.heatmapColor} type={dataset.heatmapType} />
+                </div>
             </div>
-        </div>
-        <div className="flex justify-start gap-x-4">
-            <ComHeatmap data={dataset.heatmapData} color={dataset.heatmapColor} type={dataset.heatmapType} />
-        </div>
-        <div className="flex justify-start gap-x-4">
-            <ComAreaChart data={dataset.heatmapData} color={dataset.heatmapColor} type={dataset.heatmapType} />
-        </div>
-    </main>
-}
 
-export default PageDashRegional
+            {/* Heatmap */}
+            <div className="bg-white p-6 rounded-lg shadow-sm">
+                <div className="flex items-center gap-x-3 mb-4">
+                    <label htmlFor="heatmap" className="text-sm font-medium text-neutral-700">Heatmap Category:</label>
+                    <select
+                        name="heatmap"
+                        className="bg-neutral-50 border border-neutral-300 rounded-md py-2 px-3 focus:ring-2 focus:ring-neutral-800"
+                        onChange={handleChange}
+                        defaultValue={dataset.heatmap}
+                    >
+                        <option value="ds">Download Speed</option>
+                        <option value="us">Upload Speed</option>
+                        <option value="rsrp">RSRP</option>
+                        <option value="rsrq">RSRQ</option>
+                    </select>
+                </div>
+                <div className="overflow-x-auto">
+                    <ComHeatmap data={dataset.heatmapData} color={dataset.heatmapColor} type={dataset.heatmapType} />
+                </div>
+            </div>
+        </main>
+    );
+};
+
+export default PageDashRegional;

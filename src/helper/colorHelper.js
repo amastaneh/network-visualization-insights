@@ -287,22 +287,11 @@ const colorPalette = {
     }
 }
 
-
-
 const getColorCode = (colorName, number, transparency) =>
     (colorPalette[colorName] && colorPalette[colorName][number])
         ? colorPalette[colorName][number] + (transparency ? Math.round(transparency * 255).toString(16) : "")
         : "#000"
 
-const percentageToFF = (percentage) =>
-    ('0' + Math.floor(percentage * 255).toString(16)).slice(-2)
-const percentageToGreen = (percentage) =>
-    `#${(percentageToFF(percentage) + 'ff' + percentageToFF(percentage)).padStart(6, '0')}`;
-const percentageToRed = (percentage) =>
-    `#${('ff' + percentageToFF(1 - percentage) + percentageToFF(1 - percentage)).padStart(6, '0')}`;
-
 export const colorHelper = {
     getColorCode,
-    percentageToGreen,
-    percentageToRed,
 }

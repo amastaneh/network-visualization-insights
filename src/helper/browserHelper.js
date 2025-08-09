@@ -1,8 +1,5 @@
-
-
 const isDarkMode = () => {
-    const savedDarkMode = localStorage.getItem('darkMode');
-    return (savedDarkMode === null) ? window.matchMedia('(prefers-color-scheme: dark)').matches : savedDarkMode === 'true';
+    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 }
 
 export const browserHelper = {
